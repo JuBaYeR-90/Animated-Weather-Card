@@ -1,0 +1,144 @@
+body {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: sans-serif;
+}
+
+.weather-card {
+    width: 300px;
+    height: 400px;
+    background: linear-gradient(135deg, #4facfe, #00f2fe); 
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.icon-area {
+    height: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-area {
+    height: 50%;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.temperature {
+    font-size: 3em;
+    margin: 10px 0;
+}
+
+.city, .description {
+    margin: 5px 0;
+    font-weight: 300;
+}
+
+.cloud {
+    width: 150px;
+    height: 40px;
+    background: #fdfdfd; 
+    border-radius: 20px;
+    position: absolute;
+    top: 50px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cloud::before {
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background: #fdfdfd;
+    border-radius: 50%;
+    top: -40px;
+    left: 20px;
+}
+
+.cloud::after {
+    content: '';
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background: #fdfdfd;
+    border-radius: 50%;
+    top: -50px;
+    right: 10px;
+}
+
+@keyframes cloud-move {
+    0% {
+        transform: translateX(0); 
+    }
+    50% {
+        transform: translateX(20px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.cloud {
+    width: 150px;
+    height: 40px;
+    background: #fdfdfd; 
+    border-radius: 20px;
+    position: absolute;
+    top: 50px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    
+    animation: cloud-move 5s ease-in-out infinite alternate;
+}
+
+.rain-drops {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.rain-drops::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    top: 60%;
+    left: 40%;
+    animation: rain-fall 0.8s linear infinite;
+}
+
+.rain-drops::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    top: 55%;
+    left: 65%;
+    animation: rain-fall 1.2s linear infinite 0.4s;
+}
+
+@keyframes rain-fall {
+    0% {
+        transform: translateY(0) rotate(20deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(150px) rotate(20deg);
+        opacity: 0; 
+    }
+}
